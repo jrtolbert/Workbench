@@ -1,19 +1,27 @@
-import { useState, useEffect } from "react";
+import 'survey-core/defaultV2.min.css';
+import Alert from 'react-bootstrap/Alert';
+
+import { Model } from 'survey-core';
+import { Survey } from 'survey-react-ui';
 
 function QuestionViewport({text}) {
-    const [result, setResult] = useState('');
+    console.log('Preparing survey');
+    try {
+        const surveyJson = JSON.parse(text);
+        var survey = new Model(surveyJson);
+    } catch(error) {
+        console.error("Invalid or empty JSON string: ", text);
+        <Alert key="primary" variant="primary">Invalid or empty JSON string: { text }</Alert>
+    }
     
-    useEffect(() => {
-        setResult(JSON.stringify({text}));
-    }, {text});
-    
-    console.log(result);
-    return(
-        <div>
-            <span> { text } </span>
-             
-        </div>
-    );
+    console.log(text);
+
+    if(survey) {
+        return(<Survey model = {survey} />);
+    } else {
+        var survey = new Model('');
+        return (<Survey model = {survey} />);
+    }
 }
 
 export default QuestionViewport;
