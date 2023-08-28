@@ -11,7 +11,7 @@ function QuestionViewport({text}) {
         var survey = new Model(surveyJson);
     } catch(error) {
         console.error("Invalid or empty JSON string: ", text);
-        <Alert key="primary" variant="primary">Invalid or empty JSON string: { text }</Alert>
+        //<Alert key="primary" variant="primary">Invalid or empty JSON string: { text }</Alert>
     }
     
     console.log(text);
