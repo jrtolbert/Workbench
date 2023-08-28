@@ -10,22 +10,11 @@ import QuestionViewport from './components/QuestionViewport';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-//import MainNav from './components/NavBar';
-
-
-// const header = () => {
-//   return(
-//     <div className='header'>
-
-//     </div>
-//   )
-// };
-
 function MainNav() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
         <Container>
-            <Navbar.Brand href="#home">React Project</Navbar.Brand>
+            <Navbar.Brand href="/">React Project</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="me-auto">
@@ -44,11 +33,8 @@ function App() {
 
   const jsonReaderCallback = (value) => {
     console.log(value);
-    // setJsonVal
     setJsonVal(value);
   };
-
-  
 
   return (
     <div className="App">
