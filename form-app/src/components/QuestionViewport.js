@@ -9,12 +9,13 @@ function QuestionViewport({text}) {
     try {
         const surveyJson = JSON.parse(text);
         var survey = new Model(surveyJson);
+        console.log('Logging survey JSON');
+        console.log(survey.toJSON().pages[0]);
     } catch(error) {
         console.error("Invalid or empty JSON string: ", text);
         //<Alert key="primary" variant="primary">Invalid or empty JSON string: { text }</Alert>
     }
     
-    console.log(text);
 
     if(survey) {
         return(<Survey model = {survey} />);
